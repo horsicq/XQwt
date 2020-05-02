@@ -18,6 +18,18 @@ win32-msvc* {
     }
 }
 
+unix:!macx {
+    equals(QT_FULL_VERSION, "5.6.3") {
+        XCONFIG += xqwt_present
+    }
+}
+
+unix:macx {
+    equals(QT_FULL_VERSION, "5.6.3") {
+        XCONFIG += xqwt_present
+    }
+}
+
 contains(XCONFIG, xqwt_present) {
     DEFINES += XQWT_PRESENT
 
