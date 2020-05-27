@@ -1040,7 +1040,7 @@ bool QwtPlotRenderer::exportTo( QwtPlot *plot, const QString &documentName,
     }
 
     fileName = QFileDialog::getSaveFileName(
-        NULL, tr( "Export File Name" ), fileName,
+        NULL, tr( "Export file name" ), fileName,
         filter.join( ";;" ), NULL, QFileDialog::DontConfirmOverwrite );
 #endif
     if ( fileName.isEmpty() )
