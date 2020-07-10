@@ -13,6 +13,7 @@
 #include "qwt_global.h"
 #include <qpaintdevice.h>
 #include <qpaintengine.h>
+#include <QPainterPath> // hors 10.07.2020  fix mingw 8.1.0 build
 
 /*!
   \brief A null paint device doing nothing

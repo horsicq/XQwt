@@ -15,6 +15,7 @@
 #include <qpixmap.h>
 #include <qimage.h>
 #include <qpolygon.h>
+#include <QPainterPath> // hors 10.07.2020  fix mingw 8.1.0 build
 
 class QPainterPath;
 
