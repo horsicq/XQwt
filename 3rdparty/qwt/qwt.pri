@@ -5,7 +5,7 @@ DEFINES += XQWT_PRESENT
 
 QWT_CONFIG     += QwtPlot
 QWT_CONFIG     += QwtWidgets
-QWT_CONFIG     += QwtSvg
+#QWT_CONFIG     += QwtSvg
 QWT_CONFIG     += QwtOpenGL
 
 HEADERS += \
