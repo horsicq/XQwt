@@ -13,7 +13,7 @@
 #include "qwt_global.h"
 #include <qframe.h>
 #include <qgl.h>
-#include <QPainterPath> // hors 10.07.2020  fix mingw 8.1.0 build
+#include <qpainterpath.h>
 
 class QwtPlot;
 

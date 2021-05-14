@@ -20,6 +20,7 @@
 #include "qwt_math.h"
 
 #include <qpainter.h>
+#include <qpainterpath.h>
 #include <qtransform.h>
 #include <qprinter.h>
 #include <qfiledialog.h>
@@ -1040,7 +1041,7 @@ bool QwtPlotRenderer::exportTo( QwtPlot *plot, const QString &documentName,
     }
 
     fileName = QFileDialog::getSaveFileName(
-        NULL, tr( "Export file name" ), fileName,
+        NULL, tr( "Export File Name" ), fileName,
         filter.join( ";;" ), NULL, QFileDialog::DontConfirmOverwrite );
 #endif
     if ( fileName.isEmpty() )
