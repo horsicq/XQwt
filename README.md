@@ -1,1 +1,3 @@
 # XQwt
+
+QWT for Qt
