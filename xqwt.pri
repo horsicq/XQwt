@@ -5,3 +5,6 @@ DEPENDPATH += $$PWD
     XCONFIG += qwt
     include($$PWD/3rdparty/qwt/qwt.pri)
 }
+
+DISTFILES += \
+    $$PWD/xqwt.cmake
