@@ -1,4 +1,3 @@
-# TODO guard
 include_directories(${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/)
 
 set(XQWT_SOURCES
