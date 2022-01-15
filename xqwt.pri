@@ -1,8 +1,8 @@
 INCLUDEPATH += $$PWD
 DEPENDPATH += $$PWD
 
-!contains(XCONFIG, qwt_fix) {
-    XCONFIG += qwt_fix
+!contains(XCONFIG, qwt) {
+    XCONFIG += qwt
     include($$PWD/3rdparty/qwt/qwt.pri)
 }
 
