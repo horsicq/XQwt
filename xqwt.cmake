@@ -1,12 +1,17 @@
 include_directories(${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/)
 
+add_definitions(-DXQWT_PRESENT)
+add_definitions(-DQWT_MOC_INCLUDE=1)
+
 set(XQWT_SOURCES
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_abstract_legend.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_abstract_scale.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_abstract_scale_draw.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_abstract_slider.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_analog_clock.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_arrow_button.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_bezier.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_clipper.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_color_map.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_column_symbol.cpp
@@ -40,13 +45,14 @@ set(XQWT_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_pixel_matrix.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_abstract_barchart.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_abstract_canvas.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_axis.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_barchart.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_canvas.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_curve.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_dict.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_directpainter.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_glcanvas.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_graphicitem.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_grid.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_histogram.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_intervalcurve.cpp
@@ -66,16 +72,29 @@ set(XQWT_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_shapeitem.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_spectrocurve.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_spectrogram.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_svgitem.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_textlabel.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_tradingcurve.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_xml.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_vectorfield.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_zoneitem.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_plot_zoomer.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_point_3d.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_point_data.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_point_mapper.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_point_polar.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_polar_canvas.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_polar_curve.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_polar_fitter.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_polar_grid.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_polar_item.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_polar_itemdict.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_polar_layout.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_polar_magnifier.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_polar_marker.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_polar_panner.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_polar_picker.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_polar_plot.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_polar_renderer.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_polar_spectrogram.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_raster_data.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_round_scale_draw.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_sampling_thread.cpp
@@ -87,6 +106,13 @@ set(XQWT_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_series_data.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_slider.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_spline.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_spline_basis.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_spline_cubic.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_spline_curve_fitter.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_spline_local.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_spline_parametrization.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_spline_pleasing.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_spline_polynomial.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_symbol.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_system_clock.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_text.cpp
@@ -94,6 +120,8 @@ set(XQWT_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_text_label.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_thermo.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_transform.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_vectorfield_symbol.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_weeding_curve_fitter.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_wheel.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_widget_overlay.cpp
 )
