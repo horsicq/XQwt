@@ -177,8 +177,8 @@ void QwtPlotTextLabel::draw( QPainter* painter,
     const QwtScaleMap& xMap, const QwtScaleMap& yMap,
     const QRectF& canvasRect ) const
 {
-    Q_UNUSED( xMap );
-    Q_UNUSED( yMap );
+//    Q_UNUSED( xMap );
+//    Q_UNUSED( yMap );
 
     const int m = m_data->margin;
 
