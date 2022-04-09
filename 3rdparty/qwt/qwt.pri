@@ -2,7 +2,7 @@ INCLUDEPATH += $$PWD/src
 DEPENDPATH += $$PWD/src
 
 DEFINES += XQWT_PRESENT
-# TODO Check
+# TODO Check TODO Version
 QWT_CONFIG     += QwtPlot
 QWT_CONFIG     += QwtWidgets
 QWT_CONFIG     += QwtOpenGL
