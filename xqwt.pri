@@ -7,4 +7,6 @@ DEPENDPATH += $$PWD
 }
 
 DISTFILES += \
+    $$PWD/LICENSE \
+    $$PWD/README.md \
     $$PWD/xqwt.cmake
