@@ -1,6 +1,6 @@
 include_directories(${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/)
 
-# TODO Check
+# TODO Check options
 add_definitions(-DXQWT_PRESENT)
 add_definitions(-DQWT_MOC_INCLUDE=1)
 
