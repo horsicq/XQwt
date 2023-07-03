@@ -588,8 +588,10 @@ void QwtPlotLegendItem::draw( QPainter* painter,
     const QwtScaleMap& xMap, const QwtScaleMap& yMap,
     const QRectF& canvasRect ) const
 {
+#ifdef Q_OS_LINUX
     Q_UNUSED( xMap );
     Q_UNUSED( yMap );
+#endif
 
     m_data->layout->setGeometry( geometry( canvasRect ) );
     if ( m_data->layout->geometry().isEmpty() )

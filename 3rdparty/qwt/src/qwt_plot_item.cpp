@@ -665,8 +665,10 @@ QList< QwtLegendData > QwtPlotItem::legendData() const
 void QwtPlotItem::updateScaleDiv( const QwtScaleDiv& xScaleDiv,
     const QwtScaleDiv& yScaleDiv )
 {
+#ifdef Q_OS_LINUX
     Q_UNUSED( xScaleDiv );
     Q_UNUSED( yScaleDiv );
+#endif
 }
 
 /*!
