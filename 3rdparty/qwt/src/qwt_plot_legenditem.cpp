@@ -588,7 +588,7 @@ void QwtPlotLegendItem::draw( QPainter* painter,
     const QwtScaleMap& xMap, const QwtScaleMap& yMap,
     const QRectF& canvasRect ) const
 {
-#ifdef Q_OS_LINUX
+#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
     Q_UNUSED( xMap );
     Q_UNUSED( yMap );
 #endif
