@@ -5,6 +5,7 @@ add_definitions(-DXQWT_PRESENT)
 add_definitions(-DQWT_MOC_INCLUDE=1)
 
 set(XQWT_SOURCES
+    ${XQWT_SOURCES}
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_abstract_legend.cpp
     ${CMAKE_CURRENT_LIST_DIR}/3rdparty/qwt/src/qwt_abstract_scale.cpp
