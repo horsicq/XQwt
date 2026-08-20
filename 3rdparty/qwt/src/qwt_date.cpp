@@ -12,6 +12,7 @@
 
 #include <qdebug.h>
 #include <qlocale.h>
+#include <qtimezone.h>
 
 #include <limits>
 
@@ -132,7 +133,11 @@ static inline void qwtFloorTime(
     const Qt::TimeSpec timeSpec = dt.timeSpec();
 
     if ( timeSpec == Qt::LocalTime )
+#if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
+        dt = dt.toUTC();
+#else
         dt = dt.toTimeSpec( Qt::UTC );
+#endif
 
     const QTime t = dt.time();
     switch( intervalType )
@@ -157,7 +162,11 @@ static inline void qwtFloorTime(
     }
 
     if ( timeSpec == Qt::LocalTime )
+#if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
+        dt = dt.toLocalTime();
+#else
         dt = dt.toTimeSpec( Qt::LocalTime );
+#endif
 }
 
 static inline QDateTime qwtToTimeSpec(
@@ -165,6 +174,11 @@ static inline QDateTime qwtToTimeSpec(
 {
     if ( dt.timeSpec() == spec )
         return dt;
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
+    const QTimeZone targetZone = ( spec == Qt::LocalTime )
+        ? QTimeZone::systemTimeZone() : QTimeZone( 0 );
+#endif
 
     const qint64 jd = dt.date().toJulianDay();
     if ( jd < 0 || jd >= std::numeric_limits< int >::max() )
@@ -174,12 +188,20 @@ static inline QDateTime qwtToTimeSpec(
         // overflows we simply ignore the difference
         // for those dates
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
+        return QDateTime( dt.date(), dt.time(), targetZone );
+#else
         QDateTime dt2 = dt;
         dt2.setTimeSpec( spec );
         return dt2;
+#endif
     }
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
+    return dt.toTimeZone( targetZone );
+#else
     return dt.toTimeSpec( spec );
+#endif
 }
 
 #if 0
