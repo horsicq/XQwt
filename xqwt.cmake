@@ -17,10 +17,10 @@ if(NOT DEFINED XQWT_QT_MAJOR)
     endif()
 endif()
 
-find_package(Qt${XQWT_QT_MAJOR} REQUIRED COMPONENTS PrintSupport)
+find_package(Qt${XQWT_QT_MAJOR} REQUIRED COMPONENTS PrintSupport Svg)
 
-set(XQWT_LIBS ${XQWT_LIBS} Qt${XQWT_QT_MAJOR}::PrintSupport)
-link_libraries(Qt${XQWT_QT_MAJOR}::PrintSupport)
+set(XQWT_LIBS ${XQWT_LIBS} Qt${XQWT_QT_MAJOR}::PrintSupport Qt${XQWT_QT_MAJOR}::Svg)
+link_libraries(Qt${XQWT_QT_MAJOR}::PrintSupport Qt${XQWT_QT_MAJOR}::Svg)
 
 set(XQWT_SOURCES
     ${XQWT_SOURCES}
